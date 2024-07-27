@@ -8,13 +8,16 @@
     android:background="@color/white"
     tools:context=".SignupActivity">
 
+
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="16dp"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
@@ -41,28 +44,68 @@
         android:text="Sign up here For Your\n Admin Dashboard"
         android:textAlignment="center"
         android:textColor="@color/texy_color"
-        android:textSize="20sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintHorizontal_bias="0.603"
+        app:layout_constraintHorizontal_bias="0.605"
         app:layout_constraintStart_toStartOf="@+id/textView5"
-        tools:layout_editor_absoluteY="225dp" />
+        tools:layout_editor_absoluteY="185dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="Choose Your Location"
+        android:textColor="@color/texy_color"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:layout_width="325dp"
+        android:layout_height="47dp"
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="20dp"
+        android:elevation="5dp"
+
+        app:boxStrokeWidth="0dp"
+
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconDrawable="@drawable/arrow_down"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/edittextshape"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView8">
+
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Choose Location" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <EditText
         android:id="@+id/username"
         android:layout_width="325dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/edittextshape"
         android:drawableLeft="@drawable/user"
         android:drawablePadding="15dp"
+
         android:elevation="5dp"
         android:ems="10"
         android:hint="Name of Owner"
         android:inputType="text"
         android:paddingLeft="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView8"
-        app:layout_constraintStart_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
 
     <EditText
         android:id="@+id/resturantname"
@@ -80,13 +123,13 @@
         app:layout_constraintEnd_toEndOf="@+id/username"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/username"
-        tools:layout_editor_absoluteY="360dp" />
+        tools:layout_editor_absoluteY="361dp" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
         android:layout_width="325dp"
         android:layout_height="37dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/edittextshape"
         android:drawableLeft="@drawable/mail"
         android:drawablePadding="15dp"
@@ -96,7 +139,7 @@
         android:inputType="textEmailAddress"
         android:paddingLeft="15dp"
         app:layout_constraintEnd_toEndOf="@+id/resturantname"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/resturantname"
         app:layout_constraintTop_toBottomOf="@+id/resturantname" />
 
@@ -104,7 +147,7 @@
         android:id="@+id/editTextTextPassword"
         android:layout_width="325dp"
         android:layout_height="37dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/edittextshape"
         android:drawableLeft="@drawable/lock"
         android:drawableRight="@drawable/eye_hide"
@@ -116,9 +159,10 @@
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
@@ -203,6 +247,7 @@
         app:layout_constraintEnd_toEndOf="@+id/button4"
         app:layout_constraintStart_toStartOf="@+id/button4"
         app:layout_constraintTop_toBottomOf="@+id/button4" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
