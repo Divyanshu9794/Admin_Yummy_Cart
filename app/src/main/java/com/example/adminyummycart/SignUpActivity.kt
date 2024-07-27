@@ -9,7 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.adminyummycart.databinding.ActivitySignUpBinding
 
-class SignUpActivity : AppCompatActivity() {4
+class SignUpActivity : AppCompatActivity() {
     private val binding:ActivitySignUpBinding by lazy {
         ActivitySignUpBinding.inflate(layoutInflater)
     }
