@@ -1,5 +1,6 @@
 package com.example.adminyummycart
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
@@ -16,6 +17,16 @@ class SignUpActivity : AppCompatActivity() {4
         super.onCreate(savedInstanceState)
 
         setContentView(binding.root)
+
+
+        binding.createbutton.setOnClickListener{
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
+        binding.alreadyhave.setOnClickListener{
+            val intent = Intent(this,LoginActivity::class.java)
+            startActivity(intent)
+        }
         val locationList = arrayOf("Allahabad","Varanasi","Gorakhpur","Basti")
         val adapter =ArrayAdapter(this,android.R.layout.simple_list_item_1,locationList)
         val autoCompleteTextView = binding.lisoflocation
