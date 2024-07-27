@@ -9,7 +9,6 @@
     tools:context=".SignupActivity">
 
 
-
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="100dp"
@@ -46,9 +45,9 @@
         android:textColor="@color/texy_color"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintHorizontal_bias="0.605"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="@+id/textView5"
-        tools:layout_editor_absoluteY="185dp" />
+        tools:layout_editor_absoluteY="183dp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -69,20 +68,23 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="32dp"
         android:layout_marginRight="20dp"
+        android:background="@drawable/edittextshape"
+
         android:elevation="5dp"
 
         app:boxStrokeWidth="0dp"
-
         app:boxStrokeWidthFocused="0dp"
         app:endIconDrawable="@drawable/arrow_down"
+        app:endIconTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/edittextshape"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView8">
 
         <AutoCompleteTextView
+            android:id="@+id/lisoflocation"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:inputType="none"
             android:text="Choose Location" />
 
 
@@ -163,68 +165,12 @@
         app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Or"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
-
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:text="Signup With"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/textView9"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button2"
-        android:layout_width="152dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/whitebutton"
-        android:drawableLeft="@drawable/google"
-        android:paddingLeft="15dp"
-        android:text="Google"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button3"
-        android:layout_width="152dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/whitebutton"
-        android:drawableLeft="@drawable/facebook"
-        android:paddingLeft="15dp"
-        android:text="Facebook"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button4"
         android:layout_width="152dp"
         android:layout_height="57dp"
 
-        android:layout_marginTop="14dp"
         android:background="@drawable/greenbuttongradient"
         android:text="Create Account"
         android:textAlignment="center"
@@ -232,9 +178,10 @@
 
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:layout_goneMarginTop="16dp" />
+        app:layout_goneMarginTop="16dp"
+        tools:layout_editor_absoluteY="526dp" />
 
     <TextView
         android:id="@+id/alreadyhave"
@@ -248,6 +195,18 @@
         app:layout_constraintStart_toStartOf="@+id/button4"
         app:layout_constraintTop_toBottomOf="@+id/button4" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Designed by\n Divyanshu Singh"
+        android:textAlignment="center"
+        android:textColor="@color/texy_color"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
