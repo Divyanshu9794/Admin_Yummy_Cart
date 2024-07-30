@@ -260,7 +260,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/quantitytextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Create New User"
@@ -326,6 +326,7 @@
         app:layout_constraintStart_toEndOf="@+id/cardview2"
         app:layout_constraintTop_toTopOf="@+id/cardview2">
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/allItemMenu"
             android:layout_width="match_parent"
             android:background="@drawable/cardgreen"
             android:layout_height="match_parent">
