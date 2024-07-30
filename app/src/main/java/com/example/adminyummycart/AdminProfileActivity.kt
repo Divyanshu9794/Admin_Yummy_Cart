@@ -15,6 +15,9 @@ class AdminProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(binding.root)
+        binding.backbutton.setOnClickListener {
+            finish()
+        }
 
         binding.name.isEnabled=false
         binding.address.isEnabled=false
@@ -22,5 +25,21 @@ class AdminProfileActivity : AppCompatActivity() {
         binding.phonenumber.isEnabled=false
         binding.password.isEnabled=false
 
+        var isEnable = false
+        binding.editButton.setOnClickListener{
+            isEnable =!isEnable
+
+            binding.name.isEnabled=isEnable
+            binding.address.isEnabled=isEnable
+            binding.emailid.isEnabled=isEnable
+            binding.phonenumber.isEnabled=isEnable
+            binding.password.isEnabled=isEnable
+
+            if(isEnable){
+                binding.name.requestFocus()
+            }
+
+        }
     }
+
 }
