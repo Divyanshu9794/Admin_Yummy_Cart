@@ -76,12 +76,12 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/attantion"
 
-                app:layout_constraintEnd_toEndOf="@+id/textView4"
-                app:layout_constraintStart_toStartOf="@+id/textView4"
+                app:layout_constraintEnd_toEndOf="@+id/pendingordertextview"
+                app:layout_constraintStart_toStartOf="@+id/pendingordertextview"
                 app:layout_constraintTop_toTopOf="@+id/guideline" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/pendingordertextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -101,10 +101,10 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
 
-                app:layout_constraintEnd_toEndOf="@+id/textView4"
+                app:layout_constraintEnd_toEndOf="@+id/pendingordertextview"
                 app:layout_constraintHorizontal_bias="0.507"
                 app:layout_constraintStart_toStartOf="@+id/guideline3"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toBottomOf="@+id/pendingordertextview" />
 
             <ImageView
                 android:id="@+id/imageView4"
@@ -127,7 +127,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/texy_color"
                 android:textSize="14sp"
-                app:layout_constraintStart_toEndOf="@+id/textView4"
+                app:layout_constraintStart_toEndOf="@+id/pendingordertextview"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
             <TextView
