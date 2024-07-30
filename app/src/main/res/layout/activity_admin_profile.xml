@@ -42,6 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <TextView
+        android:id="@+id/editButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -169,6 +170,7 @@
 
         <EditText
             android:layout_width="match_parent"
+            android:id="@+id/emailid"
             android:layout_height="47dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
@@ -212,6 +214,7 @@
             android:layout_width="match_parent"
             android:layout_height="47dp"
             android:layout_weight="1"
+            android:id="@+id/phonenumber"
             android:background="@android:color/transparent"
             android:inputType="phone"
             android:paddingStart="10dp"
@@ -250,6 +253,7 @@
             android:layout_width="match_parent"
             android:layout_height="47dp"
             android:layout_weight="1"
+            android:id="@+id/password"
             android:background="@android:color/transparent"
             android:inputType="textPassword"
             android:paddingStart="10dp"
@@ -258,7 +262,33 @@
 
     </LinearLayout>
 
-    
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/edittextshape"
+        android:text="Save Information"
+        android:textAllCaps="false"
+        android:textColor="@color/texy_color"
+        android:layout_marginBottom="32dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="  Designed By\nDivyanshu Singh"
+        android:textAlignment="center"
+        android:textColor="@color/texy_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
