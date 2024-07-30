@@ -16,20 +16,24 @@ class PendingOrderActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         binding=ActivityPendingOrderBinding.inflate(layoutInflater)
+        binding.backbutton.setOnClickListener {
+            finish()
+        }
         setContentView(binding.root)
         val orderedcustomerName = arrayListOf(
             "Divyanshu Singh",
             "Amar Singh ",
             "Dhruv Dwivedi"
         )
-        val orderedQuanity = arrayListOf(
+        val orderedQuantity = arrayListOf(
             "8",
             "6",
             "5"
         )
         val orderedFoodImage= arrayListOf(R.drawable.burger,R.drawable.cholekulche,R.drawable.cholebhature)
-        val adapter = PendingOrderAdapter(orderedcustomerName,orderedQuanity,orderedFoodImage)
+        val adapter = PendingOrderAdapter(orderedcustomerName,orderedQuantity,orderedFoodImage, this)
         binding.pendingOrderRecycerView.adapter = adapter
         binding.pendingOrderRecycerView.layoutManager= LinearLayoutManager(this)
 

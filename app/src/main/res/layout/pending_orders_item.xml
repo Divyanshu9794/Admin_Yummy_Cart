@@ -60,12 +60,11 @@
                 android:text="Customer Name"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/textView23"
                 app:layout_constraintStart_toEndOf="@+id/cardView6"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/pendingOrderQuantity"
+                android:id="@+id/pendingOrderQuantitytextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -76,20 +75,22 @@
                 app:layout_constraintStart_toEndOf="@+id/cardView6"
                 app:layout_constraintTop_toBottomOf="@+id/customerName" />
 
+
             <TextView
-                android:id="@+id/priceTextview"
+                android:id="@+id/pendingOrderQuantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="8"
-                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+
                 android:textColor="@color/texy_color"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView23"
-                app:layout_constraintStart_toEndOf="@+id/textView23" />
-
+                app:layout_constraintBottom_toBottomOf="@+id/pendingOrderQuantitytextview"
+                app:layout_constraintStart_toEndOf="@+id/pendingOrderQuantitytextview"
+                app:layout_constraintTop_toTopOf="@+id/pendingOrderQuantitytextview" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/deletebutton"
+                android:id="@+id/orderacceptbutton"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:text="Accept"
