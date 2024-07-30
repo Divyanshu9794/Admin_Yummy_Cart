@@ -32,7 +32,7 @@ class DeliveryAdapter(private val customerNames : ArrayList<String>,private val 
                     "notReceived" to Color.RED,
                     "pending" to Color.GRAY
                 )
-                statusmoney.setText(colorMap[moneyStatus[position]]?:Color.BLACK)
+                statusmoney.setTextColor(colorMap[moneyStatus[position]]?:Color.BLACK)
                 statuscolor.backgroundTintList = ColorStateList.valueOf(colorMap[moneyStatus[position]]?:Color.BLACK)
             }
         }
