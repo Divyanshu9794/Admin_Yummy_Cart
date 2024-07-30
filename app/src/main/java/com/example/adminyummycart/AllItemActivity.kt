@@ -21,6 +21,10 @@ class AllItemActivity : AppCompatActivity() {
         val menufoodname = listOf("Burger","Samosa","Paneer Tikka")
         val menuItemPrice = listOf("₹55","₹5","₹75")
         val menuImage = listOf(R.drawable.burger,R.drawable.samosa,R.drawable.paneertikka)
+
+        binding.backbutton.setOnClickListener {
+            finish()
+        }
         val adapter = AddItemAdapter(ArrayList(menufoodname),
             ArrayList(menuItemPrice),ArrayList(menuImage)
         )

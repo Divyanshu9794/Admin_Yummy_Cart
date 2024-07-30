@@ -76,8 +76,8 @@
 
             <ImageButton
                 android:id="@+id/MinusButton"
-                android:layout_width="9dp"
-                android:layout_height="3dp"
+                android:layout_width="19dp"
+                android:layout_height="15dp"
                 android:layout_marginEnd="8dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/minus"
@@ -106,7 +106,7 @@
                 android:id="@+id/quantitytextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10"
+                android:text="1"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintBottom_toBottomOf="@+id/plusButton"
                 app:layout_constraintEnd_toStartOf="@+id/plusButton"
