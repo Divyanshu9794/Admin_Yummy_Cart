@@ -27,6 +27,8 @@ class LoginActivity : AppCompatActivity() {
     private  var userName: String ?= null
     private  var nameOfResturant: String ?= null
 
+    private lateinit var googlesignInClient:
+
     private val binding:ActivityLoginBinding by lazy {
         ActivityLoginBinding.inflate(layoutInflater)
     }
