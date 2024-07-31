@@ -60,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/emailaddress"
         android:layout_width="325dp"
 
         android:layout_marginTop="32dp"
@@ -97,7 +97,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/pass"
         android:layout_width="325dp"
         android:layout_height="47dp"
         android:layout_marginTop="32dp"
@@ -109,9 +109,9 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:paddingLeft="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintEnd_toEndOf="@+id/emailaddress"
+        app:layout_constraintStart_toStartOf="@+id/emailaddress"
+        app:layout_constraintTop_toBottomOf="@+id/emailaddress" />
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -129,7 +129,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/pass"
         app:layout_goneMarginTop="16dp" />
 
 

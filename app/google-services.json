@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "639346742971",
+    "project_id": "yummy-cart-7b3ab",
+    "storage_bucket": "yummy-cart-7b3ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:639346742971:android:6719019f650d1949a0bb9e",
+        "android_client_info": {
+          "package_name": "com.example.adminyummycart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGw7EmJ4HaTaf4uEEHHElUrQOgfPUF7Fc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:639346742971:android:88780e0d09b41d9fa0bb9e",
+        "android_client_info": {
+          "package_name": "com.example.yummycart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGw7EmJ4HaTaf4uEEHHElUrQOgfPUF7Fc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
