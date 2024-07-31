@@ -24,6 +24,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var email: String
     private lateinit var password: String
     private lateinit var database: DatabaseReference
+    private  var userName: String ?= null
+    private  var nameOfResturant: String ?= null
 
     private val binding:ActivityLoginBinding by lazy {
         ActivityLoginBinding.inflate(layoutInflater)
@@ -62,12 +64,14 @@ class LoginActivity : AppCompatActivity() {
 
             if(task.isSuccessful){
                 val user = auth.currentUser
+                Toast.makeText(this,"Login Successfully",Toast.LENGTH_SHORT).show()
                 updateUI(user)
             }
             else{
                 auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener{task->
                     if(task.isSuccessful){
                         val user = auth.currentUser
+                        Toast.makeText(this,"User Id Created and Logged In Successfully",Toast.LENGTH_SHORT).show()
                         saveUserData()
                         updateUI(user)
                     }
@@ -85,7 +89,8 @@ class LoginActivity : AppCompatActivity() {
         password = binding.pass.text.toString().trim()
 
 
-        val user = UserModel(email,password)
+
+        val user = UserModel(userName,nameOfResturant,email,password)
         val userID = FirebaseAuth.getInstance().currentUser?.uid
         userID.let {
             if (it != null) {
@@ -99,5 +104,6 @@ class LoginActivity : AppCompatActivity() {
     private fun updateUI(user: FirebaseUser?) {
 
         startActivity(Intent(this,MainActivity::class.java))
+        finish()
     }
 }
