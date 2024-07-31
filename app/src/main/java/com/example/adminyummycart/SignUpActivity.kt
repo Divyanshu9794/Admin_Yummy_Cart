@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.adminyummycart.databinding.ActivitySignUpBinding
+import com.example.adminyummycart.model.UserModel
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -58,8 +59,7 @@ class SignUpActivity : AppCompatActivity() {
                 createAccount(email,password)
             }
 
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+
         }
         binding.alreadyhave.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
@@ -76,15 +76,31 @@ class SignUpActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener{ task->
             if(task.isSuccessful){
                 Toast.makeText(this,"Account Created Successfully",Toast.LENGTH_SHORT).show()
+                saveUserData()
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
                 finish()
             }
             else{
-                Toast.makeText(this,"Account Creation Failed",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Account Creation Failed Or Email Already in use",Toast.LENGTH_SHORT).show()
                 Log.d("Account","createAccount:Failure",task.exception)
             }
 
         }
+    }
+
+    //save data into database
+    private fun saveUserData() {
+
+        userName = binding.username.text.toString().trim()
+        nameOfResturant = binding.resturantname.text.toString().trim()
+        email = binding.emailaddress.text.toString().trim()
+        password = binding.pass.text.toString().trim()
+
+        val user = UserModel(userName,nameOfResturant,email,password)
+        val userId = FirebaseAuth.getInstance().currentUser!!.uid
+        //save user database in firebase data base
+        database.child("user").child(userId).setValue(user)
+
     }
 }
