@@ -1,21 +1,26 @@
 package com.example.adminyummycart
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.adminyummycart.databinding.ActivityLoginBinding
 import com.example.adminyummycart.model.UserModel
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.database
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.GoogleAuthProvider
 
 class LoginActivity : AppCompatActivity() {
 
@@ -27,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
     private  var userName: String ?= null
     private  var nameOfResturant: String ?= null
 
-    private lateinit var googlesignInClient:
+    private lateinit var googleSignInclient: GoogleSignInClient
 
     private val binding:ActivityLoginBinding by lazy {
         ActivityLoginBinding.inflate(layoutInflater)
@@ -37,8 +42,12 @@ class LoginActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
+        val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.gcm_defaultSenderId)).requestEmail().build()
         auth = Firebase.auth
         database = Firebase.database.reference
+
+        googleSignInclient = GoogleSignIn.getClient(this,googleSignInOptions)
 
         binding.loginbutton.setOnClickListener{
             email = binding.emailaddress.text.toString().trim()
@@ -53,6 +62,11 @@ class LoginActivity : AppCompatActivity() {
             }
 
 
+        }
+
+        binding.googlebutton.setOnClickListener{
+            val signIntent = googleSignInclient.signInIntent
+            launcher.launch(signIntent)
         }
         binding.donthave.setOnClickListener{
             val intent = Intent(this,SignUpActivity::class.java)
@@ -107,5 +121,36 @@ class LoginActivity : AppCompatActivity() {
 
         startActivity(Intent(this,MainActivity::class.java))
         finish()
+    }
+
+    private val launcher=registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+        result ->
+        if(result.resultCode== Activity.RESULT_OK){
+            val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+            if(task.isSuccessful ){
+                val account :GoogleSignInAccount = task.result
+                val credentials = GoogleAuthProvider.getCredential(account.idToken,null)
+                auth.signInWithCredential(credentials).addOnCompleteListener{authTask->
+                    if(authTask.isSuccessful) {
+                        Toast.makeText(
+                            this,
+                            "Successfully signedIn With Google",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        updateUI(null)
+
+                    }
+                    else{
+                        Toast.makeText(this,"Google sign In Failed",Toast.LENGTH_SHORT).show()
+                    }
+
+                }
+
+            }
+            else{
+                Toast.makeText(this,"Google sign In Failed",Toast.LENGTH_SHORT).show()
+            }
+        }
+
     }
 }
