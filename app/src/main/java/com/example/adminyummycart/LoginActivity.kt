@@ -133,5 +133,20 @@ class LoginActivity : AppCompatActivity() {
         googleSignInClient.signOut().addOnCompleteListener {
             googleSignInClient.revokeAccess()
         }
+
+    }
+
+    //if user is already logged in
+
+    override fun onStart() {
+        super.onStart()
+        val currentUser =auth.currentUser
+        if(currentUser!=null){
+
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+             
+
+        }
     }
 }
