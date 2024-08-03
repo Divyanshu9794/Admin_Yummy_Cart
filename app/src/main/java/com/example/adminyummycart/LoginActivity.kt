@@ -117,7 +117,8 @@ class LoginActivity : AppCompatActivity() {
                 auth.signInWithCredential(credentials).addOnCompleteListener { authTask ->
                     if (authTask.isSuccessful) {
                         Toast.makeText(this, "Successfully signed in with Google", Toast.LENGTH_SHORT).show()
-                        updateUI(auth.currentUser)
+                        updateUI(authTask.result?.user)
+                        finish()
                     } else {
                         Toast.makeText(this, "Google sign in failed", Toast.LENGTH_SHORT).show()
                     }
@@ -145,7 +146,7 @@ class LoginActivity : AppCompatActivity() {
 
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
-             
+
 
         }
     }
