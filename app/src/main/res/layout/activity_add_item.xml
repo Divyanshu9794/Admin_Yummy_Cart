@@ -156,7 +156,7 @@
                 android:background="@drawable/edittextshape"
                 android:gravity="center_vertical"
                 android:paddingLeft="15dp"
-                android:text="Short Description"
+                android:text="Ingredient"
                 android:textColor="@color/black"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"

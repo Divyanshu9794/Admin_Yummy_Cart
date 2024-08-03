@@ -1,5 +1,6 @@
 package com.example.adminyummycart
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.PickVisualMediaRequest
@@ -8,8 +9,26 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.adminyummycart.databinding.ActivityAddItemBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class AddItemActivity : AppCompatActivity() {
+
+    //food item details
+
+    private lateinit var foodName:String
+    private lateinit var foodPrice:String
+    private lateinit var foodDescription:String
+    private lateinit var foodIngredient:String
+    private  var foodImage:Uri?=null
+
+
+    //firebase
+
+    private lateinit var auth: FirebaseAuth
+
+    private lateinit var database: FirebaseDatabase
+
     private val binding : ActivityAddItemBinding by lazy {
         ActivityAddItemBinding.inflate(layoutInflater)
     }
@@ -19,6 +38,14 @@ class AddItemActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(binding.root)
+
+        //Initialization of Firebase
+
+        auth = FirebaseAuth.getInstance()
+
+        //Initializing Database Instance
+
+        database = FirebaseDatabase.getInstance()
         binding.selectimage.setOnClickListener{
             pickimage.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
         }
