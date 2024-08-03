@@ -48,7 +48,7 @@
 
 
             <EditText
-                android:id="@+id/enterfoodname"
+                android:id="@+id/foodname"
                 android:layout_width="0dp"
                 android:layout_height="57dp"
                 android:layout_marginStart="8dp"
@@ -67,7 +67,7 @@
 
 
             <EditText
-                android:id="@+id/enterfoodprice"
+                android:id="@+id/foodprice"
                 android:layout_width="0dp"
                 android:layout_height="57dp"
                 android:layout_marginTop="24dp"
@@ -78,9 +78,9 @@
                 android:outlineSpotShadowColor="@color/texy_color"
                 android:paddingLeft="15dp"
                 android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="@+id/enterfoodname"
-                app:layout_constraintStart_toStartOf="@+id/enterfoodname"
-                app:layout_constraintTop_toBottomOf="@+id/enterfoodname" />
+                app:layout_constraintEnd_toEndOf="@+id/foodname"
+                app:layout_constraintStart_toStartOf="@+id/foodname"
+                app:layout_constraintTop_toBottomOf="@+id/foodname" />
 
 
             <TextView
@@ -99,7 +99,7 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/enterfoodprice" />
+                app:layout_constraintTop_toBottomOf="@+id/foodprice" />
 
 
             <androidx.cardview.widget.CardView

@@ -46,6 +46,20 @@ class AddItemActivity : AppCompatActivity() {
         //Initializing Database Instance
 
         database = FirebaseDatabase.getInstance()
+
+        binding.additembutton.setOnClickListener{
+            //get datafrom fields
+
+            foodName = binding.foodname.text.toString().trim()
+            foodPrice = binding.foodprice.text.toString().trim()
+            foodDescription = binding.description.text.toString().trim()
+            foodIngredient =binding.ingredient.text.toString().trim()
+
+            if(!(foodName.isBlank() || foodPrice.isBlank()||foodDescription.isBlank()||foodIngredient.isBlank())){
+                uploadData()
+            }
+
+        }
         binding.selectimage.setOnClickListener{
             pickimage.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
         }
@@ -55,6 +69,13 @@ class AddItemActivity : AppCompatActivity() {
         }
 
     }
+
+    private fun uploadData() {
+
+
+
+    }
+
     val pickimage=registerForActivityResult(ActivityResultContracts.PickVisualMedia()){uri->
         if(uri != null){
             binding.selectedimage.setImageURI(uri)
