@@ -52,10 +52,7 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
 
-    // Add the dependency for the Firebase Authentication library
-    // When using the BoM, you don't specify versions in Firebase library dependencies
-    implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.android.gms:play-services-auth:20.2.0")
+    implementation("com.google.android.gms:play-services-auth:19.2.0")
 
 
     // Also add the dependency for the Google Play services library and specify its version

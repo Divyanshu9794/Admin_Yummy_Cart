@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "639346742971",
+    "firebase_url": "https://yummy-cart-7b3ab-default-rtdb.firebaseio.com",
     "project_id": "yummy-cart-7b3ab",
     "storage_bucket": "yummy-cart-7b3ab.appspot.com"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.example.adminyummycart"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "639346742971-9cp51rbllm4v7co69qk1d1ckgm2adfed.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.adminyummycart",
+            "certificate_hash": "eacd2988b31ed627d6d43345af526049fceb1e8b"
+          }
+        },
+        {
+          "client_id": "639346742971-bb638i83dbj95s728ubon9ff7q2urfl3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBGw7EmJ4HaTaf4uEEHHElUrQOgfPUF7Fc"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "639346742971-bb638i83dbj95s728ubon9ff7q2urfl3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     },
@@ -31,7 +50,12 @@
           "package_name": "com.example.yummycart"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "639346742971-bb638i83dbj95s728ubon9ff7q2urfl3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBGw7EmJ4HaTaf4uEEHHElUrQOgfPUF7Fc"
@@ -39,7 +63,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "639346742971-bb638i83dbj95s728ubon9ff7q2urfl3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

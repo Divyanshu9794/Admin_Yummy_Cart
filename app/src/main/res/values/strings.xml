@@ -2,4 +2,5 @@
     <string name="app_name">Admin Yummy Cart </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_web_client_id">639346742971-9cp51rbllm4v7co69qk1d1ckgm2adfed.apps.googleusercontent.com</string>
 </resources>
