@@ -144,6 +144,7 @@ class AddItemActivity : AppCompatActivity() {
     private val pickimage=registerForActivityResult(ActivityResultContracts.GetContent()){uri->
         if(uri != null){
             binding.selectedimage.setImageURI(uri)
+            foodImage=uri
         }
 
     }
