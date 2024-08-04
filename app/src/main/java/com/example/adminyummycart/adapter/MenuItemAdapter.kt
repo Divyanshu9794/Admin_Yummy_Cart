@@ -8,10 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.adminyummycart.databinding.ItemItemBinding
 import com.example.adminyummycart.model.AllMenu
+import com.google.firebase.database.DatabaseReference
 
 class MenuItemAdapter(
-    private val context:Context,
-    private val menuList:ArrayList<AllMenu>
+    private val context: Context,
+    private val menuList: ArrayList<AllMenu>,
+    databaseReference: DatabaseReference
 ): RecyclerView.Adapter<MenuItemAdapter.AddItemViewHolder>() {
 
     private val itemQuantities = IntArray(menuList.size){1}
