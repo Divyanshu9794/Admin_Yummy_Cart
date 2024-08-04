@@ -1,16 +1,15 @@
 package com.example.adminyummycart
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.adminyummycart.adapter.AddItemAdapter
+import com.example.adminyummycart.adapter.MenuItemAdapter
 import com.example.adminyummycart.databinding.ActivityAllItemBinding
 import java.util.ArrayList
 
 class AllItemActivity : AppCompatActivity() {
+
+    
     private val binding:ActivityAllItemBinding by lazy {
         ActivityAllItemBinding.inflate(layoutInflater)
     }
@@ -25,7 +24,7 @@ class AllItemActivity : AppCompatActivity() {
         binding.backbutton.setOnClickListener {
             finish()
         }
-        val adapter = AddItemAdapter(ArrayList(menufoodname),
+        val adapter = MenuItemAdapter(ArrayList(menufoodname),
             ArrayList(menuItemPrice),ArrayList(menuImage)
         )
 

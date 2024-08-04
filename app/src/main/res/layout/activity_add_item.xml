@@ -141,8 +141,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:background="@color/white"
-                android:text="Bla Bla bla blaBla Bla bla blaBla Bla bla blaBla Bla bla blaBla Bla bla bla"
 
+                android:hint="Add here Description"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/cardView2"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -172,7 +172,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:background="@color/white"
-                android:text="Aloo\nPotato\nTomato"
+                android:hint="Add here Ingredients"
                 app:layout_constraintEnd_toEndOf="@+id/cardView2"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/shortdescription"

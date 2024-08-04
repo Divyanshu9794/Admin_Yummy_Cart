@@ -55,6 +55,8 @@ dependencies {
 
     implementation("com.google.android.gms:play-services-auth:19.2.0")
 
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
 
     // Also add the dependency for the Google Play services library and specify its version
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
