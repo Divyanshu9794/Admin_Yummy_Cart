@@ -10,9 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.adminyummycart.databinding.ActivityAddItemBinding
+import com.example.adminyummycart.model.AllMenu
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 
 class AddItemActivity : AppCompatActivity() {
 
@@ -84,7 +86,57 @@ class AddItemActivity : AppCompatActivity() {
 
         //get reference to the menu to the database
 
-        val MenuRef:DatabaseReference = database.getReference("")
+        val menuRef:DatabaseReference = database.getReference("menu")
+
+
+        //generating a unique key for the new menu item menu
+
+        val newItemKey :String? = menuRef.push().key
+
+        if(foodImage != null){
+            val storageRef = FirebaseStorage.getInstance().reference
+            val imageRef = storageRef.child("menu_images/${newItemKey}.jpg")
+
+            val uploadTask =imageRef.putFile(foodImage!!)
+
+            uploadTask.addOnSuccessListener {
+                imageRef.downloadUrl.addOnSuccessListener {
+                    downloadUrl ->
+                    //create a new menu item
+
+                    val newItem = AllMenu(
+                        foodName=foodName,
+                        foodPrice=foodPrice,
+                        foodDescription = foodDescription,
+                        foodIngredient = foodIngredient,
+                        foodImage = downloadUrl.toString(),
+
+
+                    )
+                    newItemKey?.let {
+                        key->
+                        menuRef.child(key).setValue(newItem).addOnSuccessListener {
+                            Toast.makeText(this,"Data Uploaded Successfully",Toast.LENGTH_SHORT).show()
+
+                        }
+                            .addOnFailureListener{
+                                Toast.makeText(this,"Data Uploading Failed",Toast.LENGTH_SHORT).show()
+                            }
+                    }
+                }
+
+            }
+                .addOnFailureListener{
+                    Toast.makeText(this,"Data Uploading Failed",Toast.LENGTH_SHORT).show()
+                }
+
+        }
+
+        else{
+
+                Toast.makeText(this,"Please Select an Image",Toast.LENGTH_SHORT).show()
+
+        }
 
 
     }
