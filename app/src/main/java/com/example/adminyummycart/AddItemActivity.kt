@@ -2,6 +2,7 @@ package com.example.adminyummycart
 
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -10,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.adminyummycart.databinding.ActivityAddItemBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 class AddItemActivity : AppCompatActivity() {
@@ -57,12 +59,20 @@ class AddItemActivity : AppCompatActivity() {
 
             if(!(foodName.isBlank() || foodPrice.isBlank()||foodDescription.isBlank()||foodIngredient.isBlank())){
                 uploadData()
+                Toast.makeText(this,"Item Added Successfully",Toast.LENGTH_SHORT).show()
+
+                finish()
+            }
+            else{
+                Toast.makeText(this,"Fill All the details",Toast.LENGTH_SHORT).show()
             }
 
         }
+        
         binding.selectimage.setOnClickListener{
-            pickimage.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+            pickimage.launch("image/*")
         }
+        
 
         binding.backbutton.setOnClickListener {
             finish()
@@ -72,11 +82,14 @@ class AddItemActivity : AppCompatActivity() {
 
     private fun uploadData() {
 
+        //get reference to the menu to the database
+
+        val MenuRef:DatabaseReference = database.getReference("")
 
 
     }
 
-    val pickimage=registerForActivityResult(ActivityResultContracts.PickVisualMedia()){uri->
+    private val pickimage=registerForActivityResult(ActivityResultContracts.GetContent()){uri->
         if(uri != null){
             binding.selectedimage.setImageURI(uri)
         }
