@@ -22,17 +22,7 @@ class PendingOrderActivity : AppCompatActivity() {
             finish()
         }
         setContentView(binding.root)
-        val orderedcustomerName = arrayListOf(
-            "Divyanshu Singh",
-            "Amar Singh ",
-            "Dhruv Dwivedi"
-        )
-        val orderedQuantity = arrayListOf(
-            "8",
-            "6",
-            "5"
-        )
-        val orderedFoodImage= arrayListOf(R.drawable.burger,R.drawable.cholekulche,R.drawable.cholebhature)
+        
         val adapter = PendingOrderAdapter(orderedcustomerName,orderedQuantity,orderedFoodImage, this)
         binding.pendingOrderRecycerView.adapter = adapter
         binding.pendingOrderRecycerView.layoutManager= LinearLayoutManager(this)
