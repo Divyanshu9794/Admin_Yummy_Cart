@@ -22,8 +22,8 @@ class PendingOrderActivity : AppCompatActivity() {
             finish()
         }
         setContentView(binding.root)
+
         
-        val adapter = PendingOrderAdapter(orderedcustomerName,orderedQuantity,orderedFoodImage, this)
         binding.pendingOrderRecycerView.adapter = adapter
         binding.pendingOrderRecycerView.layoutManager= LinearLayoutManager(this)
 
