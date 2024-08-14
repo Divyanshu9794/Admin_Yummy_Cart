@@ -24,8 +24,6 @@ class PendingOrderActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         
-        binding.pendingOrderRecycerView.adapter = adapter
-        binding.pendingOrderRecycerView.layoutManager= LinearLayoutManager(this)
 
     }
 }
