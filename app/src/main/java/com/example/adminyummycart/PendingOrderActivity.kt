@@ -13,6 +13,13 @@ import com.example.adminyummycart.databinding.PendingOrdersItemBinding
 
 class PendingOrderActivity : AppCompatActivity() {
     private lateinit var binding:ActivityPendingOrderBinding
+    
+    private var listOfName:MutableList<String> =mutableListOf()
+    private var listOfTotalPrice :MutableList<String> = mutableListOf()
+    private  var listOfImageFirstFoodOrder :MutableList<String> = mutableListOf()
+    private var listOfOrderItem:MutableList<OrderDetails> = mutableListOf()
+
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
