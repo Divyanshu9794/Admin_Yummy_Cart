@@ -20,6 +20,8 @@ class PendingOrderAdapter(
 
     interface OnItemClicked{
         fun onItemClickListener(position: Int)
+        fun onItemAcceptClickListener(position: Int)
+        fun onItemDispatchClickListener(position: Int)
     }
 
 
@@ -57,10 +59,14 @@ class PendingOrderAdapter(
                             text = "Dispatched"
                             isAccepted = true
                             showToast("Order Accepted")
+                            itemClicked.onItemAcceptClickListener(position)
+
+
                         } else {
                             customerNames.removeAt(adapterPosition)
                             notifyItemRemoved(adapterPosition)
                             showToast("Ordered is Dispatched")
+                            itemClicked.onItemDispatchClickListener(position)
                         }
 
                     }
