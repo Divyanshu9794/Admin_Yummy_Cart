@@ -1,15 +1,10 @@
 package com.example.adminyummycart
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.adminyummycart.adapter.DeliveryAdapter
 import com.example.adminyummycart.adapter.PendingOrderAdapter
 import com.example.adminyummycart.databinding.ActivityPendingOrderBinding
-import com.example.adminyummycart.databinding.PendingOrdersItemBinding
 import com.example.adminyummycart.model.OrderDetails
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -71,7 +66,17 @@ class PendingOrderActivity : AppCompatActivity() {
         for (orderItem in listOfOrderItem){
             orderItem.userName?.let { listOfName.add(it) }
             orderItem.totalPrice?.let { listOfTotalPrice.add(it) }
-            orderItem.foodImages?.get(0)?.let { listOfImageFirstFoodOrder.add(it) }
+            orderItem.foodImages?.filterNot { it.isEmpty() }?.forEach {
+                listOfImageFirstFoodOrder.add(it)
+            }
         }
+        setAdapter()
+
+    }
+
+    private fun setAdapter() {
+        binding.pendingOrderRecycerView.layoutManager =LinearLayoutManager(this)
+        val adapter = PendingOrderAdapter(this,listOfName,listOfTotalPrice,listOfImageFirstFoodOrder)
+        binding.pendingOrderRecycerView.adapter = adapter
     }
 }
