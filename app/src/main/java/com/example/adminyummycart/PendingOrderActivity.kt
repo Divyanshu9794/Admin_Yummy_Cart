@@ -1,5 +1,6 @@
 package com.example.adminyummycart
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -81,6 +82,11 @@ class PendingOrderActivity : AppCompatActivity(),PendingOrderAdapter.OnItemClick
     }
 
     override fun onItemClickListener(position: Int) {
-        
+
+        val intent = Intent(this,OrderDetailsActivity::class.java)
+        val userOrderDetails = listOfOrderItem[position]
+        intent.putExtra("UserOrderDetails",userOrderDetails)
+        startActivity(intent)
+
     }
 }
