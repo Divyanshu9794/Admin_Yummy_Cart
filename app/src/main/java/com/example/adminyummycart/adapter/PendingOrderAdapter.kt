@@ -15,8 +15,12 @@ class PendingOrderAdapter(
     private val customerNames: MutableList<String>,
     private val quantity: MutableList<String>,
     private val foodImage: MutableList<String>,
-//    private val itemClicked: OnItemClicked
+    private val itemClicked: OnItemClicked
 ) : RecyclerView.Adapter<PendingOrderAdapter.PendingOrderViewHolder>() {
+
+    interface OnItemClicked{
+        fun onItemClickListener(position: Int)
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PendingOrderViewHolder {
@@ -60,6 +64,10 @@ class PendingOrderAdapter(
                         }
 
                     }
+                }
+
+                itemView.setOnClickListener{
+                    itemClicked.onItemClickListener(position)
                 }
             }
 

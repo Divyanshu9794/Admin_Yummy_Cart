@@ -12,7 +12,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class PendingOrderActivity : AppCompatActivity() {
+class PendingOrderActivity : AppCompatActivity(),PendingOrderAdapter.OnItemClicked {
     private lateinit var binding:ActivityPendingOrderBinding
 
     private var listOfName:MutableList<String> =mutableListOf()
@@ -76,7 +76,11 @@ class PendingOrderActivity : AppCompatActivity() {
 
     private fun setAdapter() {
         binding.pendingOrderRecycerView.layoutManager =LinearLayoutManager(this)
-        val adapter = PendingOrderAdapter(this,listOfName,listOfTotalPrice,listOfImageFirstFoodOrder)
+        val adapter = PendingOrderAdapter(this,listOfName,listOfTotalPrice,listOfImageFirstFoodOrder,this)
         binding.pendingOrderRecycerView.adapter = adapter
+    }
+
+    override fun onItemClickListener(position: Int) {
+        
     }
 }
