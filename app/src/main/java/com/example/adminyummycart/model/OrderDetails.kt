@@ -3,7 +3,8 @@ package com.example.adminyummycart.model
 import android.os.Parcel
 import android.os.Parcelable
 
-class OrderDetails():Parcelable {
+class OrderDetails(): Parcelable {
+
     var userUid: String? = null
     var userName: String? = null
     var foodNames: MutableList<String>? = null
