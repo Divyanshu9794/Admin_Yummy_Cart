@@ -110,6 +110,7 @@ class PendingOrderActivity : AppCompatActivity(), PendingOrderAdapter.OnItemClic
         dispatchItemOrderReferance.setValue(listOfOrderItem[position])
             .addOnSuccessListener {
                 deleteThisItemFromOrderDetails(dispatchItemPushKey)
+
             }
 
     }
@@ -133,10 +134,10 @@ class PendingOrderActivity : AppCompatActivity(), PendingOrderAdapter.OnItemClic
         val userIdOfClickedItem = listOfOrderItem[position].userUid
         val pushKeyOfClickedItem = listOfOrderItem[position].itemPushKey
         val buyHistoryReference =
-            database.reference.child("user").child(userIdOfClickedItem!!).child("BuyHistory")
+            database.reference.child("user").child(userIdOfClickedItem!!).child("ByHistory")
                 .child(pushKeyOfClickedItem!!)
         buyHistoryReference.child("orderAccepted").setValue(true)
-        databaseOrderDetails.child(pushKeyOfClickedItem).child("AcceptedOrder").setValue(true)
+        databaseOrderDetails.child(pushKeyOfClickedItem).child("orderAccepted").setValue(true)
 
 
     }

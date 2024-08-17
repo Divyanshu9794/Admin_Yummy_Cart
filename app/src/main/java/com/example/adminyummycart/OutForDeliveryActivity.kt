@@ -45,7 +45,7 @@ class OutForDeliveryActivity : AppCompatActivity() {
         database = FirebaseDatabase.getInstance()
         val completeOrderReference = database.reference.child("CompletedOrder")
 
-            .orderByChild("currentTime")
+            .orderByChild("currentItem")
 
         completeOrderReference.addListenerForSingleValueEvent(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
