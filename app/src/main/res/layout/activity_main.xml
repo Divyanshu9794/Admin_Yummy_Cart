@@ -94,13 +94,14 @@
 
 
             <TextView
+                android:id="@+id/pendingOrders"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="30"
                 android:textColor="@color/black"
-                android:textSize="20sp"
 
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/pendingordertextview"
                 app:layout_constraintHorizontal_bias="0.507"
                 app:layout_constraintStart_toStartOf="@+id/guideline3"
