@@ -263,15 +263,16 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/saveInfoButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/edittextshape"
         android:text="Save Information"
         android:textAllCaps="false"
         android:textColor="@color/texy_color"
-        android:layout_marginBottom="32dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/textView12"
         app:layout_constraintEnd_toEndOf="parent"
