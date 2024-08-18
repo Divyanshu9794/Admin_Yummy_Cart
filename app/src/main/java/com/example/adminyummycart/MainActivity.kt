@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.adminyummycart.databinding.ActivityMainBinding
+import com.example.adminyummycart.model.OrderDetails
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -57,6 +58,34 @@ class MainActivity : AppCompatActivity() {
 
         pendingOrders()
         completeOrders()
+
+        wholeTimeEarning()
+
+    }
+
+    private fun wholeTimeEarning() {
+
+        var listOfTotalPay = mutableListOf<Int>()
+        completedOrderReference = FirebaseDatabase.getInstance().reference.child("CompletedOrder")
+        completedOrderReference.addListenerForSingleValueEvent(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                for(orderSnapshot in snapshot.children){
+                    var completeOrder = orderSnapshot.getValue(OrderDetails::class.java)
+                    completeOrder?.totalPrice?.replace("₹","")?.toIntOrNull()
+                        ?.let { i->
+                            listOfTotalPay.add(i)
+                        }
+                }
+                binding.wholeTimeEarning.text = listOfTotalPay.sum().toString() + "₹"
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+
 
     }
 
