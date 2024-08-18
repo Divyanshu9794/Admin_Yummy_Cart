@@ -56,33 +56,50 @@ class MainActivity : AppCompatActivity() {
         }
 
         pendingOrders()
+        completeOrders()
 
     }
 
-    private fun pendingOrders() {
-        database = FirebaseDatabase.getInstance()
-        var pendingOrderReference = database.reference.child("OrderDetails")
-        var pendingOrderItemCount =0
-        pendingOrderReference.addListenerForSingleValueEvent(object :ValueEventListener{
+
+    private fun completeOrders() {
+        val completedOrderReference = database.reference.child("CompletedOrder")
+
+        valueEventListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-
-                pendingOrderItemCount=snapshot.childrenCount.toInt()
-                binding.pendingOrders.text = pendingOrderItemCount.toString()
-
-
-                //9:23:09 tak hua h baaki karna h aur comment hata dena h
-                //9:23:09 tak hua h baaki karna h aur comment hata dena h
-                //9:23:09 tak hua h baaki karna h aur comment hata dena h
-                //9:23:09 tak hua h baaki karna h aur comment hata dena h
-                //9:23:09 tak hua h baaki karna h aur comment hata dena h
-                
+                val completeOrderItemCount = snapshot.childrenCount.toInt()
+                binding.completeOrders.text = completeOrderItemCount.toString()
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                // Handle database error
+            }
+        }
+        completedOrderReference.addValueEventListener(valueEventListener)
+
+    }
+
+    private lateinit var pendingOrderReference: DatabaseReference
+    private lateinit var valueEventListener: ValueEventListener
+
+    private fun pendingOrders() {
+        database = FirebaseDatabase.getInstance()
+        pendingOrderReference = database.reference.child("OrderDetails")
+
+        valueEventListener = object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val pendingOrderItemCount = snapshot.childrenCount.toInt()
+                binding.pendingOrders.text = pendingOrderItemCount.toString()
             }
 
-        })
+            override fun onCancelled(error: DatabaseError) {
+                // Handle database error
+            }
+        }
+        pendingOrderReference.addValueEventListener(valueEventListener)
+    }
 
+    override fun onStop() {
+        super.onStop()
+        pendingOrderReference.removeEventListener(valueEventListener)
     }
 }
