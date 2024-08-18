@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(binding.root)
+        auth = FirebaseAuth.getInstance()
 
         binding.addmenu.setOnClickListener {
             val intent = Intent(this,AddItemActivity::class.java)
@@ -54,6 +55,11 @@ class MainActivity : AppCompatActivity() {
         binding.pendingordertextview.setOnClickListener{
             val intent = Intent(this,PendingOrderActivity::class.java)
             startActivity(intent)
+        }
+        binding.logoutButton.setOnClickListener {
+            auth.signOut()
+            startActivity(Intent(this,LoginActivity::class.java))
+            finish()
         }
 
         pendingOrders()
